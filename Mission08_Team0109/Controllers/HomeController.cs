@@ -39,5 +39,40 @@ namespace Mission08_Team0109.Controllers
             return View(jobs);
         }
 
+        // Drew will add the edit and delete functions
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var recordToEdit = _context.Jobs.Single(x => x.JobId == id);
+            return View(recordToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Job updated)
+        {
+            _context.Update(updated);
+            _context.SaveChanges();
+
+            return RedirectToAction("JobList");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id) 
+        {
+            var recordToDelete = _context.Jobs.Single(x => x.JobId == id);
+
+            return View(recordToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Job deleted)
+        {
+            _context.Jobs.Remove(deleted);
+            _context.SaveChanges();
+
+            return RedirectToAction("JobList");
+        }
+
     }
 }
