@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Mission08_Team0109.Models.Job
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container mt-5">
+    <h1>Enter A Task</h1>
+    <form method="post" class="needs-validation" novalidate>
+        <input type="hidden" asp-for="JobId" />
+        <div class="form-group">
+            <label asp-for="JobName">Task</label>
+            <input required asp-for="JobName" class="form-control" />
+            <div class="invalid-feedback">Task is required</div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DueDate">Due Date-Please Enter it in this Way (YYYY-MM-DD)</label>
+            <input asp-for="DueDate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Quadrant">Quadrant</label>
+            <input asp-for="Quadrant" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryName">Category</label>
+            <select required asp-for="CategoryName" class="form-control">
+                <option value="" selected disabled>Please Select an Option</option>
+                <option value="Home">Home</option>
+                <option value="School">School</option>
+                <option value="Work">Work</option>
+                <option value="Church">Church</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Completed">Completed</label>
+            <select required asp-for="Completed" class="form-control">
+                <option value="" selected disabled>Please Select an Option</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+        </div>
+        <br />
+        <button type="submit">Submit Task To Database</button>
+    </form>
+</div>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
