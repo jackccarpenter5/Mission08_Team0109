@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+
 namespace Mission08_Team0109.Models
 {
     public class JobContext : DbContext

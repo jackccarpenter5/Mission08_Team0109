@@ -44,8 +44,10 @@ namespace Mission08_Team0109.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var recordToEdit = _context.Jobs.Single(x => x.JobId == id);
-            return View(recordToEdit);
+            var recordToEdit = _context.Jobs
+                .Single(x => x.JobId == id);
+
+            return View("EnterAJob", recordToEdit);
         }
 
         [HttpPost]
